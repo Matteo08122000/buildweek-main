@@ -105,10 +105,41 @@ justify-content: space-between;
   padding: 5px 15px 5px 15px;
   width: 180px;
   height: 50px;
+  margin-bottom: 50px;
 }
 
-#question{
-    display: flex;
-  align-items: center;
-  justify-content: center;
+#submitAnswerButton{
+    background-color: #0FF;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    padding: 5px 15px 5px 15px;
+    width: 180px;
+    height: 50px;
+    margin-top: 50px;
+}
+
+#questionText{
+    margin-bottom: 50px;
+    color:white;
+    font-size: 25px;
+}
+
+.answer{
+    display: grid;
+  width: 500px;
+  grid-template-columns: repeat(2,1fr);
+  color: white;
+  font-size: 25px;
+}
+
+#result{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-top: 40px;
+    font-size:40px;
 }
