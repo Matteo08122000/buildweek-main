@@ -4,14 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz</title>
+  <link rel="stylesheet" href="/BW2QUIZ/style.css">
 </head>
-<body>
+<body class="imgsfondo">
+  <img class="img" src ="/BW2QUIZ/assets/epicode_logo.png" alt="logo Epicode" >
   <div id="start">
     <button id="startButton">Start Quiz</button>
   </div>
   <div id="question" class="hidden">
     <p id="questionText"></p>
-    <form>
+    <form id="form">
       <div>
         <input type="radio" id="answer0" name="answer" value="">
         <label for="answer0" id="label0"></label>
@@ -35,7 +37,6 @@
   <div id="result" class="hidden">
     <p id="score"></p>
   </div>
-
   <script src="/BW2QUIZ/test1.js"></script>
 </body>
 </html>
