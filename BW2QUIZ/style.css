@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.imgsfondo{
+    background-image: url('/BW2QUIZ/assets/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center ;
+    margin: 0;
+    height: 100vh; 
+    
+    }
+header img{
+      width: 180px;
+      height: 47px;
+      margin-left: 83px;
+      margin-top: 50px;
+    }
+#btnwelcome{
+       background-color: rgb(33, 255, 255);
+       color: #000000;
+       border: none;
+       font-size: 18px;
+       font-weight: bold;
+       font-family: ;
+       cursor: pointer;
+       transition: box-shadow 0.3s ease;
+       padding: 5px 15px 5px 15px;
+       width: 180px;
+       height: 50px;
+      }
+      
+      #bnwelcome:hover{
+            color: black;
+            
+            }
+            
+      
+.Titoloh1{
+       
+       color: antiquewhite;
+       font-size: 70px;
+       margin-top: 50px;
+      } 
+
+    .Titoloh2{
+        
+       color: antiquewhite;
+       font-size: 70px;
+       font-weight: 800;
+
+      }
+.Titoloh3{ 
+      font: size 100px;
+      margin-top: 20px;
+      font-size: 33px;
+      color: rgb(160,0,119);
+     
+      } 
+.paragrafo{
+      margin-top: 10px;
+      color: antiquewhite;
+      
+     }
+      
+.lista{ 
+     
+     color: antiquewhite;
+     margin-top: 30px;
+     margin-left: 20px;
+     
+    }
+.flex {
+   color: white;
+    }
+
+.lista span {
+    font-weight: 600;
+}
+
+
+
+section{
+    
+    margin-left: 83px;
+}
+
+.flex{
+    display: flex;
+justify-content: space-between;
+    margin-left: 83px;
+    margin-right: 200px;
+    margin-top: 50px;
+    
+    
+}
+
+
