@@ -96,11 +96,33 @@ const questions = [
 
 let userScore = 0;
 let questionNumber = 0;
+let timeLeft = 60;
+let timerInterval;
 
 function startQuiz() {
   document.getElementById("startButton").classList.add("hidden");
   document.getElementById("question").classList.remove("hidden");
   displayQuestion();
+  startTimer();
+}
+
+function startTimer() {
+  clearInterval(timerInterval); // Clear any existing interval
+  timeLeft = 60;
+  timerInterval = setInterval(() => {
+    timeLeft--;
+    document.getElementById("timer").textContent = ` ${timeLeft}`;
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      questionNumber++;
+      if (questionNumber < questions.length) {
+        displayQuestion();
+        startTimer();
+      } else {
+        showResult();
+      }
+    }
+  }, 1000);
 }
 
 function displayQuestion() {
@@ -144,18 +166,30 @@ function submitAnswer() {
     if (answerValue === currentQuestion.correct_answer) {
       userScore++;
       document.getElementById("feedback").textContent = "";
+    } else {
+      document.getElementById("feedback").textContent = "";
     }
     questionNumber++;
-    setTimeout(displayQuestion, 500);
+    setTimeout(() => {
+      if (questionNumber < questions.length) {
+        displayQuestion();
+        startTimer();
+      } else {
+        showResult();
+      }
+    }, 500);
   } else {
     alert("Seleziona una risposta prima di procedere.");
   }
 }
 
 function showResult() {
+  clearInterval(timerInterval);
   document.getElementById("question").classList.add("hidden");
   document.getElementById("result").classList.remove("hidden");
-  document.getElementById("score").textContent = `${userScore} su ${questions.length}`;
+  document.getElementById(
+    "score"
+  ).textContent = `${userScore} su ${questions.length}`;
   document.getElementById("restartButton").classList.remove("hidden");
 }
 
@@ -165,9 +199,11 @@ function restartQuiz() {
   document.getElementById("result").classList.add("hidden");
   document.getElementById("question").classList.remove("hidden");
   displayQuestion();
+  startTimer();
 }
 
-// document.getElementById("startButton").addEventListener("click", startQuiz);
 window.addEventListener("load", startQuiz);
-document.getElementById("submitAnswerButton").addEventListener("click", submitAnswer);
+document
+  .getElementById("submitAnswerButton")
+  .addEventListener("click", submitAnswer);
 document.getElementById("restartButton").addEventListener("click", restartQuiz);

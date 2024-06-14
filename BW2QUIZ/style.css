@@ -116,18 +116,6 @@ section {
 
 }
 
-#startButton {
-    background-color: #0FF;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease;
-    width: 180px;
-    height: 50px;
-
-}
-
 #submitAnswerButton {
     background-color: #0FF;
     border: none;
@@ -169,12 +157,7 @@ section {
     font-size: 40px;
 }
 
-#start {
-    height: 50px;
-    width: 180px;
-    margin-right: 83px;
-   
-}
+
 
 .headerTest {
     display: flex;
@@ -224,3 +207,20 @@ section {
     justify-content: center;
     align-items: center;
 }
+
+#timerContainer{
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    width: 80px;
+    border-radius: 80px;
+    height: 80px;
+    font-size: 2.5em;
+    text-align: center;
+   
+}
+
+#timer{
+    padding-top: 15px;
+
+}
+
