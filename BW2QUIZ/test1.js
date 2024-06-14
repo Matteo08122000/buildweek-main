@@ -100,14 +100,13 @@ let timeLeft = 60;
 let timerInterval;
 
 function startQuiz() {
-  document.getElementById("startButton").classList.add("hidden");
   document.getElementById("question").classList.remove("hidden");
   displayQuestion();
   startTimer();
 }
 
 function startTimer() {
-  clearInterval(timerInterval); // Clear any existing interval
+  clearInterval(timerInterval);
   timeLeft = 60;
   timerInterval = setInterval(() => {
     timeLeft--;
@@ -154,6 +153,12 @@ function displayQuestion() {
   resetFeedback();
 }
 
+const colorLabel = document.getElementById("label0");
+
+function changeColor() {
+  colorLabel.style.backgroundColor = "red";
+}
+
 function resetFeedback() {
   document.getElementById("feedback").textContent = "";
 }
@@ -190,20 +195,9 @@ function showResult() {
   document.getElementById(
     "score"
   ).textContent = `${userScore} su ${questions.length}`;
-  document.getElementById("restartButton").classList.remove("hidden");
-}
-
-function restartQuiz() {
-  questionNumber = 0;
-  userScore = 0;
-  document.getElementById("result").classList.add("hidden");
-  document.getElementById("question").classList.remove("hidden");
-  displayQuestion();
-  startTimer();
 }
 
 window.addEventListener("load", startQuiz);
 document
   .getElementById("submitAnswerButton")
   .addEventListener("click", submitAnswer);
-document.getElementById("restartButton").addEventListener("click", restartQuiz);
