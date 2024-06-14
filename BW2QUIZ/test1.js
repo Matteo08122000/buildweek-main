@@ -120,11 +120,11 @@ function displayQuestion() {
     });
 
     if (currentQuestion.type === "boolean") {
-      document.getElementById("answer2").parentElement.style.display = "none";
-      document.getElementById("answer3").parentElement.style.display = "none";
+      document.getElementById("answer2").parentElement.style.opacity = "0";
+      document.getElementById("answer3").parentElement.style.opacity = "0";
     } else {
-      document.getElementById("answer2").parentElement.style.display = "block";
-      document.getElementById("answer3").parentElement.style.display = "block";
+      document.getElementById("answer2").parentElement.style.opacity = "1";
+      document.getElementById("answer3").parentElement.style.opacity = "1";
     }
   } else {
     showResult();
@@ -155,9 +155,7 @@ function submitAnswer() {
 function showResult() {
   document.getElementById("question").classList.add("hidden");
   document.getElementById("result").classList.remove("hidden");
-  document.getElementById(
-    "score"
-  ).textContent = `${userScore} su ${questions.length}`;
+  document.getElementById("score").textContent = `${userScore} su ${questions.length}`;
   document.getElementById("restartButton").classList.remove("hidden");
 }
 
@@ -169,8 +167,7 @@ function restartQuiz() {
   displayQuestion();
 }
 
-document.getElementById("startButton").addEventListener("click", startQuiz);
-document
-  .getElementById("submitAnswerButton")
-  .addEventListener("click", submitAnswer);
+// document.getElementById("startButton").addEventListener("click", startQuiz);
+window.addEventListener("load", startQuiz);
+document.getElementById("submitAnswerButton").addEventListener("click", submitAnswer);
 document.getElementById("restartButton").addEventListener("click", restartQuiz);
