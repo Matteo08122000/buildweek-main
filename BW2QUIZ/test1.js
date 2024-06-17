@@ -93,7 +93,6 @@ const questions = [
     incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
-
 let userScore = 0;
 let questionNumber = 0;
 let timeLeft = 60;
@@ -147,16 +146,14 @@ function displayQuestion() {
       document.getElementById("answer2").parentElement.style.opacity = "1";
       document.getElementById("answer3").parentElement.style.opacity = "1";
     }
+
+    document.getElementById("questionCounter").textContent = `Questions: ${
+      questionNumber + 1
+    }/10`;
   } else {
     showResult();
   }
   resetFeedback();
-}
-
-const colorLabel = document.getElementById("label0");
-
-function changeColor() {
-  colorLabel.style.backgroundColor = "red";
 }
 
 function resetFeedback() {
@@ -194,7 +191,15 @@ function showResult() {
   document.getElementById("result").classList.remove("hidden");
   document.getElementById(
     "score"
-  ).textContent = `${userScore} su ${questions.length}`;
+  ).textContent = `  ${userScore} su  ${questions.length}`;
+
+  const resultMessage = document.createElement("div");
+  if (userScore >= 6) {
+    resultMessage.textContent = "Hai superato l'esame!";
+  } else {
+    resultMessage.textContent = "Ritenta, non hai superato l'esame.";
+  }
+  document.getElementById("result").appendChild(resultMessage);
 }
 
 window.addEventListener("load", startQuiz);
